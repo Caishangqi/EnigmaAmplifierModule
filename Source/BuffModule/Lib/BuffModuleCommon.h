@@ -9,7 +9,14 @@
 class UBuffInstance;
 class UBuffDefinition;
 /**
- * 
+ * @class UBuffModuleCommon
+ * @brief Provides a set of utility functions to manage buffs on actors.
+ *
+ * This class includes functionality for adding and removing buffs from target actors,
+ * allowing for dynamic manipulation of buffs during gameplay.
+ *
+ * Inherits from UBlueprintFunctionLibrary, enabling access to the functions in
+ * Blueprints as callable utility functions.
  */
 UCLASS()
 class BUFFMODULE_API UBuffModuleCommon : public UBlueprintFunctionLibrary
