@@ -6,6 +6,8 @@
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "CoreAttributeCommon.generated.h"
 
+struct FAttributeData;
+class UCoreAttributeComponent;
 /**
  * UCoreAttributeCommon serves as a utility class that provides common functionality for attributes
  * in the Core Attribute Module. This class inherits from UBlueprintFunctionLibrary, allowing the
@@ -19,4 +21,14 @@ UCLASS()
 class COREATTRIBUTEMODULE_API UCoreAttributeCommon : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
+
+public:
+	UFUNCTION(BlueprintCallable, Category = "Attribute")
+	static UCoreAttributeComponent* AppendAttribute(FAttributeData& appendedAttributeData, UObject* source, AActor* target);
+	UFUNCTION(BlueprintPure, Category="Attribute")
+	static FAttributeData GetFinalAttributeData(AActor* target);
+	UFUNCTION(BlueprintPure, Category="Attribute")
+	static FAttributeData GetBaseAttributeData(AActor* target);
+	UFUNCTION(BlueprintCallable, Category="Attribute")
+	static int GetAppendedAttributes(AActor* target, TArray<FAttributeData> &appendedAttributes);
 };
