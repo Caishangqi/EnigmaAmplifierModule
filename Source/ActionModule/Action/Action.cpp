@@ -43,7 +43,31 @@ float UAction::GetRemainCooldown() const
 	return GetWorld()->GetTimerManager().GetTimerRemaining(TimerHandle);
 }
 
-class UWorld* UAction::GetWorld() const
+/**
+ * Determines if the action's associated owner supports the GetWorld functionality.
+ *
+ * This method verifies if the action's owner is valid and thus capable of returning a world context.
+ *
+ * @return True if the action's owner is valid and a world context can be retrieved; false otherwise.
+ */
+bool UAction::ImplementsGetWorld() const
+{
+	if (Owner == nullptr)
+	{
+		return false;
+	}
+	return true;
+}
+
+/**
+ * Gets the world context in which the action's owner exists, if available.
+ *
+ * This method retrieves the UWorld instance associated with the Action's owner,
+ * typically required for operations that need a reference to the game world.
+ *
+ * @return The UWorld instance for the action's owner. Returns nullptr if the owner is not set or unavailable.
+ */
+UWorld* UAction::GetWorld() const
 {
 	if (Owner == nullptr)
 	{

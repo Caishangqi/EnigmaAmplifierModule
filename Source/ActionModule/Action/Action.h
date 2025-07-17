@@ -26,7 +26,8 @@ class ACTIONMODULE_API UAction : public UObject
 
 public:
 	UAction();
-	virtual class UWorld* GetWorld() const override;
+	virtual UWorld* GetWorld() const override;
+	virtual bool    ImplementsGetWorld() const override;
 
 public:
 	// Action nickname to start/stop without a reference to the object
