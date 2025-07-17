@@ -48,6 +48,22 @@ void UActionComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActo
 
 void UActionComponent::GetOwnedGameplayTags(FGameplayTagContainer& TagContainer) const
 {
+	TagContainer.AppendTags(ActiveGamePlayTags);
+}
+
+FGameplayTagContainer UActionComponent::BP_GetOwnedGameplayTags() const
+{
+	return ActiveGamePlayTags;
+}
+
+bool UActionComponent::HasAllMatchingGameplayTags(const FGameplayTagContainer& TagContainer) const
+{
+	return ActiveGamePlayTags.HasAll(TagContainer);
+}
+
+bool UActionComponent::HasAnyMatchingGameplayTags(const FGameplayTagContainer& TagContainer) const
+{
+	return ActiveGamePlayTags.HasAny(TagContainer);
 }
 
 FActionResult UActionComponent::AddAction(TSubclassOf<UAction> actionClass)

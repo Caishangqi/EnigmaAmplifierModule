@@ -55,7 +55,10 @@ public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
-	virtual void GetOwnedGameplayTags(FGameplayTagContainer& TagContainer) const override;
+	virtual void                  GetOwnedGameplayTags(FGameplayTagContainer& TagContainer) const override;
+	virtual FGameplayTagContainer BP_GetOwnedGameplayTags() const override;
+	virtual bool                  HasAllMatchingGameplayTags(const FGameplayTagContainer& TagContainer) const override;
+	virtual bool                  HasAnyMatchingGameplayTags(const FGameplayTagContainer& TagContainer) const override;
 
 public:
 	// When the Action is running / start, the correspond game-tags will added to the container
