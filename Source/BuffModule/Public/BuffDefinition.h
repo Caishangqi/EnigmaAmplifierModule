@@ -8,6 +8,7 @@
 
 enum class EBuffRemoveStackUpdate : uint8;
 enum class EBuffTimeUpdate : uint8;
+class UBuffInstance;
 class UBuffModel;
 /**
  * 
@@ -50,21 +51,25 @@ public:
 	EBuffRemoveStackUpdate BuffRemoveStackUpdate;
 
 public:
+	// Customize Buff Instance template, LD could storage additional variable and function.
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="BuffInstanceTemplate")
+	TSubclassOf<UBuffInstance> BuffInstanceTemplate;
+
 	/// Call back
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Buff Callback")
 	TSubclassOf<UBuffModel> OnCreate;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Buff Callback")
 	TSubclassOf<UBuffModel> OnRemove;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Buff Callback")
 	TSubclassOf<UBuffModel> OnTick;
 
 	// Hit Process Methods, when Hit is valid and we apply and process HitData.
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Buff Callback")
 	TSubclassOf<UBuffModel> OnHitDataConsume;
 
 	// Hit Receive Methods, when Hit is valid but we do not apply and process HitData yet.
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category="Buff Callback")
 	TSubclassOf<UBuffModel> OnHitReceive;
 };
