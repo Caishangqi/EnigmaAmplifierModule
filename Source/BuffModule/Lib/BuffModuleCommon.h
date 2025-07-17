@@ -6,6 +6,7 @@
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "BuffModuleCommon.generated.h"
 
+class UBuffComponent;
 class UBuffInstance;
 class UBuffDefinition;
 /**
@@ -28,4 +29,9 @@ public:
 	static bool AddBuff(TSubclassOf<UBuffDefinition> BuffDefinition, AActor* Target, AActor* Instigator = nullptr);
 	UFUNCTION(BlueprintCallable, Category = Buff)
 	static bool RemoveBuff(UBuffInstance* BuffInstance, AActor* Target, bool withProcedure = true);
+	UFUNCTION(BlueprintCallable, Category = Buff)
+	static bool GetHasBuff(AActor* componentOwner, UBuffDefinition* buffTemplate);
+private:
+	UFUNCTION(BlueprintCallable, Category= Buff)
+	static UBuffComponent* GetBuffComponent(AActor* componentOwner);
 };
