@@ -9,7 +9,7 @@ struct FAttributeData
 	GENERATED_BODY()
 
 public:
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Data, meta = (AllowPrivateAccess = "true", ToolTip = "The Damage Soruce from"))
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Data, meta = (AllowPrivateAccess = "true", ToolTip = "Who is responsible for this attribute"))
 	TObjectPtr<UObject> Source = nullptr;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Attributes, meta = (AllowPrivateAccess = "true", ToolTip = "Owner's Health"))
