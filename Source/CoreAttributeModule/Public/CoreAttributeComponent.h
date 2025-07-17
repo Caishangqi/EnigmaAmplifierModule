@@ -86,7 +86,7 @@ private:
 	FAttributeData AttributeDataCurrent; // Current Attribute Data that include Attribute Base + Append Attribute
 
 	UPROPERTY()
-	TArray<FAttributeData> QueueAppendedAttributeData;
+	TArray<FAttributeData> AppendedAttributeData;
 
 	UPROPERTY()
 	TObjectPtr<UBuffComponent> CachedBuffComponent; // May invalid when character do not have Buff Component.
