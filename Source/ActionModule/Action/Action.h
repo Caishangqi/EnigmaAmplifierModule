@@ -35,7 +35,7 @@ public:
 	// Action Icon that used in skill bar and Hud
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Action, meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<UTexture2D> ActionIcon;
-	
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Action, meta = (AllowPrivateAccess = "true"))
 	bool bIsCooling = false;
 
